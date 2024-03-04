@@ -15,7 +15,7 @@ public class Main {
     private static final double SSS = 1125.0; 
     private static final double PHILHEALTH = 750.0; 
     private static final double GENERIC_DEDUCTIONS = SSS + PHILHEALTH; // Replace with the actual generic deductions
-
+    
     public static void main(String[] args) {
         Attendance[] employeeAttendance = EmployeeData.getAttendance();
 
@@ -89,6 +89,16 @@ public class Main {
     }
 
     private static void displayWeeklySummaries(Map<String, List<WeeklySummary>> weeklySummaries) {
+        
+        Employee[] employees = EmployeeData.getEmployees();
+
+        // Print employee data
+        for (Employee employee : employees) {
+            System.out.println( " EMPLOYEE DETAILS " );
+            System.out.println(employee);
+        }
+       
+        
         // Display weekly summaries
         for (Map.Entry<String, List<WeeklySummary>> entry : weeklySummaries.entrySet()) {
             System.out.println("*** Employee Name: " + entry.getKey());
@@ -117,4 +127,6 @@ public class Main {
             System.out.println("========================================");
         }
     }
+    
+    
 }
